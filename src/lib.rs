@@ -43,13 +43,14 @@ use std::marker::PhantomData;
 use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::rc::Rc;
 use std::sync::atomic::{AtomicBool, AtomicPtr, Ordering};
-use std::sync::{Arc, Mutex, RwLock, TryLockError};
+use std::sync::{Mutex, RwLock, TryLockError};
 use std::task::{Poll, Waker};
 
 use async_task::{Builder, Runnable};
 use concurrent_queue::ConcurrentQueue;
 use futures_lite::{future, prelude::*};
 use slab::Slab;
+use triomphe::Arc;
 
 #[doc(no_inline)]
 pub use async_task::{FallibleTask, Task};
